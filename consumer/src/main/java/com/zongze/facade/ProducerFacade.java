@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * Create By xzz on 2019/1/18
  */
-@FeignClient(value = "producer",fallback = HellowHystrix.class)
+@FeignClient(value = "producer", fallback = HellowHystrix.class)
 public interface ProducerFacade {
 
     @RequestMapping("hellow")
-    public String hellow();
+    String hellow();
 
 
 }
