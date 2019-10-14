@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Create By xzz on 2019/10/12
  */
 @RestController
-@RefreshScope
+@RefreshScope  //如果需要刷新配置，就需要该注解
 public class ConfigTestController {
 
     @Value("${config.dev.name}")
