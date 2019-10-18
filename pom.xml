@@ -28,6 +28,7 @@
         <module>zuul</module>
         <module>config_server</module>
         <module>config-client</module>
+        <module>gateway</module>
     </modules>
 
     <dependencies>

@@ -15,13 +15,13 @@ public class HellowCloudController {
     private Logger logger = LoggerFactory.getLogger(HellowCloudController.class);
 
     @Value("${server.port}")
-    private String port ;
+    private String port;
 
     @RequestMapping("hellow")
-    public String hellow(){
+    public String hellow() {
         String result = "hellow springCloud feign ";
-        logger.info("result is {}",result+port);
-        return result+port;
+        logger.info("result is {}", result + port);
+        return result + port;
     }
 
 }

@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: sc-gateway-server
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          lowerCaseServiceId: true
+      routes:
+      - id: consumer
+        uri: lb://CONSUMER
+        predicates:
+        - Path=/consumer/**
+        filters:
+        - LogGateway=true
+        #将服务前缀路径strip掉
+        - StripPrefix= 1
+        - AddHeader=token,toms
+
+
+
