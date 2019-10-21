@@ -14,4 +14,9 @@ public class AddHeaderGatewayFilterFactory extends AbstractNameValueGatewayFilte
             return chain.filter(exchange.mutate().request(serverHttpRequest).build());
         };
     }
+
+    @Override
+    public String name() {
+        return "AddHeader";
+    }
 }
