@@ -42,7 +42,7 @@ public class RabbitmqTransactionService {
         }
     }
 
-    public List<MqMessage> unSendTask() {
+    public List<MqMessage> unSendMessage() {
         //伪代码
         return new ArrayList<>();
     }

@@ -23,7 +23,6 @@ public class MQConfig {
         MqSender mqSender = new MqSender();
         rabbitTemplate.setConfirmCallback(mqSender);
         rabbitTemplate.setReturnCallback(mqSender);
-//        rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
         mqSender.setAmqpTemplate(rabbitTemplate);
         return mqSender;
     }

@@ -19,7 +19,7 @@ public class ScanMessageTask {
 
     @Scheduled(cron = "0 0/5 * * * ? ") //每天5分钟执行一次
     public void scan() {
-        List<MqMessage> list = service.unSendTask();
+        List<MqMessage> list = service.unSendMessage();
         if (list != null && list.size() > 0) {
             list.stream().forEach(message -> service.send(message));
         }
