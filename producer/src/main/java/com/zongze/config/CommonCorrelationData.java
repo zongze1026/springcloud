@@ -8,18 +8,18 @@ import org.springframework.amqp.rabbit.connection.CorrelationData;
  */
 @Data
 public class CommonCorrelationData extends CorrelationData {
-
     private Object messageBody;
-
     private String exchange;
-
     private String routKey;
+    private String ttlTime;
+    private boolean persistent;
 
 
-    public CommonCorrelationData(String id, Object messageBody, String exchange, String routKey) {
-        super(id);
+    public CommonCorrelationData(Object messageBody, String exchange, String routKey, String ttlTime, boolean persistent) {
         this.messageBody = messageBody;
         this.exchange = exchange;
         this.routKey = routKey;
+        this.ttlTime = ttlTime;
+        this.persistent = persistent;
     }
 }

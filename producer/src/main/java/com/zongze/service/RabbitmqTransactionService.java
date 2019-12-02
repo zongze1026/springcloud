@@ -38,7 +38,7 @@ public class RabbitmqTransactionService {
     public void send(MqMessage mqMessage) {
         mqMessage.setMessageStatus("1");
         if (mqMessageMapper.consumerMessage(mqMessage) > 0) {
-            mqSender.send(OrderQueueConfig.orderExchange, OrderQueueConfig.orderQueue, mqMessage, mqMessage.getId());
+            mqSender.send(OrderQueueConfig.orderExchange, "", mqMessage);
         }
     }
 
