@@ -32,7 +32,7 @@ public class CloudConsumerController {
         } else {
             System.out.println("请求中没有携带token");
         }
-        return facade.hellow();
+        return facade.hello();
     }
 
 

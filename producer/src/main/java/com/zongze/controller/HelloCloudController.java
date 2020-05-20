@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
  * Create By xzz on 2019/1/18
  */
 @RestController
-public class HellowCloudController {
+public class HelloCloudController {
 
-    private Logger logger = LoggerFactory.getLogger(HellowCloudController.class);
+    private Logger logger = LoggerFactory.getLogger(HelloCloudController.class);
 
     @Value("${server.port}")
     private String port;
 
-    @RequestMapping("hellow")
-    public String hellow() {
-        String result = "hellow springCloud feign ";
+    @RequestMapping("hello")
+    public String hello() {
+        String result = "hello springCloud feign ";
         logger.info("result is {}", result + port);
         return result + port;
     }
