@@ -22,7 +22,7 @@ public class OrderController {
 
     @PostMapping("create")
     public ResultResp createOrder(@RequestBody Order order){
-        order.setPrice("5000");
+        order.setPrice("29999");
         return orderService.saveOrder(order);
     }
 
