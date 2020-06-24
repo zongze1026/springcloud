@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zongze.mapper.OrderMapper">
+
+
+    <insert id="addOrder" parameterType="com.zongze.common.Order" useGeneratedKeys="true">
+        insert into `order`(user_id ,goods_id ,price ,goods_name)values(#{userId},#{goodsId},#{price},#{goodsName})
+    </insert>
+
+</mapper>
