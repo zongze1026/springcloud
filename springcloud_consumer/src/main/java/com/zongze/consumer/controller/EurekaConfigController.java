@@ -25,10 +25,12 @@ public class EurekaConfigController {
     private String serverName;
 
     @GetMapping("config")
-    public void getConfig(){
+    public String getConfig(){
         System.out.println(serverName);
         List<InstanceInfo> infoList = eurekaClient.getInstancesByVipAddress(serverName, false);
-        System.out.println(JSON.toJSONString(infoList));
+        String jsonData = JSON.toJSONString(infoList);
+        System.out.println(jsonData);
+        return jsonData;
     }
 
 
