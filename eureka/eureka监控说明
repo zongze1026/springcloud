@@ -1,0 +1,2 @@
+1.eureka拉取客户端信息
+http://localhost:9092/eureka/apps/{应用名称}(eureka-cluster)
