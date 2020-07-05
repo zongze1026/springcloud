@@ -1,0 +1,29 @@
+
+
+1.ribbon内置分负载均衡策略
+BestAvailableRule :逐个考察server；选择一个最小并发的server
+AvailabilityFilteringRule :会过滤掉一些一直连接失败的server
+RandomRule : 随机选择一个server
+RoundRobinRule :轮询
+RetryRule :重试机制，ribbon在选择一个server请求不成功时，会尝试选择一个其他的server进行调用
+WeightedResponseTimeRule :响应时间最小策略；ribbon会根据server的响应时间分配权重；时间越小权重越大
+
+2.springCloud中使用ribbon的负载均衡策略；前缀是服务名称如：springcloud-order
+{springcloud-order}.ribbon.NFLoadBalancerRuleClassName=com.netflix.loadbalancer.RoundRobinRule
+
+
+3.ribbon重试策略；通过spring-retry实现
+
+ 1.引入spring-retry依赖
+        <dependency>
+            <groupId>org.springframework.retry</groupId>
+            <artifactId>spring-retry</artifactId>
+        </dependency>
+
+ 2.配置重试策略
+    #针对所有请求都开启重试
+    springcloud-order.ribbon.OkToRetryOnAllOperations=true
+    #当前实例重试次数
+    springcloud-order.ribbon.MaxAutoRetries=1
+    #切换实例重试次数
+    springcloud-order.ribbon.MaxAutoRetriesNextServer=2

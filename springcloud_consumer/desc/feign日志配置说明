@@ -1,0 +1,18 @@
+
+
+1.创建日志级别配置类
+@Configuration
+public class FeignLogConfiguration {
+  @Bean
+  Logger.Level feignLoggerLevel() {
+    return Logger.Level.FULL;
+  }
+}
+
+2.在feign接口中使用配置类
+@FeignClient(value = "springcloud-order",configuration = {FeignLogConfiguration.class})
+public interface OrderFacade {
+}
+
+3.在配置文件指定facade接口包使用debug级别日志
+logging.level.com.zongze.common.facade=debug
