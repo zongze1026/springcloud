@@ -22,13 +22,13 @@
     </properties>
 
     <modules>
-        <module>eureka</module>
-        <module>springcloud_consumer</module>
+        <module>springcloud-eureka</module>
+        <module>springcloud-consumer</module>
         <module>producer</module>
         <module>zuul</module>
         <module>config_server</module>
         <module>config-client</module>
-        <module>gateway</module>
+        <module>springcloud-gateway</module>
         <module>springcloud-order</module>
         <module>springcloud-common</module>
     </modules>

@@ -12,9 +12,9 @@
 
 
     <groupId>com.zongze</groupId>
-    <artifactId>springcloud-ribbon</artifactId>
+    <artifactId>ribbon</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springcloud-ribbon</name>
+    <name>ribbon</name>
     <description>Demo project for Spring Boot</description>
 
 
