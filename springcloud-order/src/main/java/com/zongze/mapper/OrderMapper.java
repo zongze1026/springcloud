@@ -1,5 +1,5 @@
 package com.zongze.mapper;
-import com.zongze.common.Order;
+import com.zongze.entity.model.Order;
 
 /**
  * Create By xzz on 2020/6/24

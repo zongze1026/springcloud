@@ -1,4 +1,4 @@
-package com.zongze.common;
+package com.zongze.entity.model;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -7,6 +7,7 @@ import java.util.Date;
  */
 public class Order implements Serializable {
 
+    //user_id ,goods_id ,price ,goods_name
     private Integer orderId;
 
     private Integer userId;
