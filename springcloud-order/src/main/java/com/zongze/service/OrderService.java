@@ -1,6 +1,6 @@
 package com.zongze.service;
-import com.zongze.entity.model.Order;
-import com.zongze.entity.ResultResp;
+import com.zongze.common.entity.model.Order;
+import com.zongze.common.entity.ResultResp;
 import com.zongze.mapper.OrderMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.zongze.entity.model;
+package com.zongze.common.entity.model;
 import java.io.Serializable;
 import java.util.Date;
 

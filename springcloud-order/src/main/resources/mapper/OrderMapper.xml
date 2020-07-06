@@ -4,7 +4,7 @@
 <mapper namespace="com.zongze.mapper.OrderMapper">
 
 
-    <insert id="addOrder" parameterType="com.zongze.entity.model.Order" useGeneratedKeys="true">
+    <insert id="addOrder" parameterType="com.zongze.common.entity.model.Order" useGeneratedKeys="true">
         insert into `order`(user_id ,goods_id ,price ,goods_name)values(#{userId},#{goodsId},#{price},#{goodsName})
     </insert>
 

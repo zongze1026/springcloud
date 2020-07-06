@@ -1,8 +1,8 @@
 package com.zongze.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.zongze.entity.MqMessage;
-import com.zongze.entity.Order;
+import com.zongze.common.entity.MqMessage;
+import com.zongze.common.entity.Order;
 import com.zongze.service.OrderService;
 import com.zongze.service.RabbitmqTransactionService;
 import com.zongze.util.SnowflakeIdWorker;

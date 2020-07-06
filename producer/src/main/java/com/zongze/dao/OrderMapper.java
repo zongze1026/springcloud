@@ -1,6 +1,6 @@
 package com.zongze.dao;
 
-import com.zongze.entity.Order;
+import com.zongze.common.entity.Order;
 
 /**
  * Create By xzz on 2019/11/28

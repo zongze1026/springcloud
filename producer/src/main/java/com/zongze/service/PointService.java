@@ -2,8 +2,8 @@ package com.zongze.service;
 
 import com.zongze.dao.MqMessageMapper;
 import com.zongze.dao.PointMapper;
-import com.zongze.entity.MqMessage;
-import com.zongze.entity.Point;
+import com.zongze.common.entity.MqMessage;
+import com.zongze.common.entity.Point;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

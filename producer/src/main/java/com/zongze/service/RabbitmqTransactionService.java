@@ -3,7 +3,7 @@ package com.zongze.service;
 import com.zongze.config.MqSender;
 import com.zongze.config.OrderQueueConfig;
 import com.zongze.dao.MqMessageMapper;
-import com.zongze.entity.MqMessage;
+import com.zongze.common.entity.MqMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

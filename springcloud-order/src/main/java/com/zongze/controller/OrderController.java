@@ -1,8 +1,8 @@
 package com.zongze.controller;
 
 import com.zongze.common.facade.OrderFacade;
-import com.zongze.entity.model.Order;
-import com.zongze.entity.ResultResp;
+import com.zongze.common.entity.model.Order;
+import com.zongze.common.entity.ResultResp;
 import com.zongze.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

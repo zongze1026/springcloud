@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zongze.dao.OrderMapper">
 
-    <insert id="orderAdd" parameterType="com.zongze.entity.model.Order" useGeneratedKeys="true" keyProperty="id"
+    <insert id="orderAdd" parameterType="com.zongze.common.entity.model.Order" useGeneratedKeys="true" keyProperty="id"
             keyColumn="id">
         insert into `order`
         <trim prefix="(" suffix=")" prefixOverrides=",">
@@ -19,7 +19,7 @@
         </trim>
     </insert>
 
-    <select id="orderFind" parameterType="java.lang.String" resultType="com.zongze.entity.model.Order">
+    <select id="orderFind" parameterType="java.lang.String" resultType="com.zongze.common.entity.model.Order">
         select id,order_name as orderName,order_price as orderPrice from `order` where id=#{id}
     </select>
 

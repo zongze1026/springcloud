@@ -2,8 +2,8 @@ package com.zongze.consumer;
 
 import com.alibaba.fastjson.JSON;
 import com.rabbitmq.client.Channel;
-import com.zongze.entity.MqMessage;
-import com.zongze.entity.Order;
+import com.zongze.common.entity.MqMessage;
+import com.zongze.common.entity.Order;
 import com.zongze.service.OrderService;
 import com.zongze.service.PointService;
 import com.zongze.service.RabbitmqTransactionService;

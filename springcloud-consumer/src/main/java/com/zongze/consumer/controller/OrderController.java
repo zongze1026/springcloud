@@ -1,6 +1,6 @@
 package com.zongze.consumer.controller;
-import com.zongze.entity.model.Order;
-import com.zongze.entity.ResultResp;
+import com.zongze.common.entity.model.Order;
+import com.zongze.common.entity.ResultResp;
 import com.zongze.common.facade.OrderFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

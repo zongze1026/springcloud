@@ -1,6 +1,6 @@
 package com.zongze.dao;
 
-import com.zongze.entity.Point;
+import com.zongze.common.entity.Point;
 
 /**
  * Create By xzz on 2019/11/28

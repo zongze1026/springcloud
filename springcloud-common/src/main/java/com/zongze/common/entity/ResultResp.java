@@ -1,4 +1,4 @@
-package com.zongze.entity;
+package com.zongze.common.entity;
 
 
 import com.zongze.common.enums.ExceptionEnum;

@@ -1,7 +1,7 @@
 package com.zongze.dao;
 
 
-import com.zongze.entity.MqMessage;
+import com.zongze.common.entity.MqMessage;
 
 /**
  * Create By xzz on 2019/11/28

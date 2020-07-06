@@ -1,8 +1,8 @@
 package com.zongze.common.hystrix;
 
 import com.zongze.common.facade.OrderFacade;
-import com.zongze.entity.ResultResp;
-import com.zongze.entity.model.Order;
+import com.zongze.common.entity.ResultResp;
+import com.zongze.common.entity.model.Order;
 import feign.hystrix.FallbackFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

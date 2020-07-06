@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zongze.dao.PointMapper">
 
-    <update id="addPoint" parameterType="com.zongze.entity.Point">
+    <update id="addPoint" parameterType="com.zongze.common.entity.Point">
         update point
         <set>
             <trim prefixOverrides=",">

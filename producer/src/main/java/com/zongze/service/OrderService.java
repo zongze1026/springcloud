@@ -1,7 +1,7 @@
 package com.zongze.service;
 
 import com.zongze.dao.OrderMapper;
-import com.zongze.entity.Order;
+import com.zongze.common.entity.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

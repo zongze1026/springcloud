@@ -1,0 +1,49 @@
+jwt构成说明；jwt由三部分构成，第一部分是（Header）头部、第二部分是（Payload）载荷和第三部分（Signature）签名
+
+1.Header部分是一个 JSON 对象，描述 JWT 的元数据，通常是下面的样子
+    {
+        "typ": "JWT",
+        "alg": "HS256"
+    }
+    alg 表示的是一种签名算法
+    typ 表示token令牌的类型
+
+
+2.Payload部分也是一个 JSON 对象，用来存放实际需要传递的数据。
+    2.1.JWT 规定了7个官方字段，供选用
+        iss (issuer)：签发人
+        exp (expiration time)：过期时间
+        sub (subject)：主题
+        aud (audience)：受众
+        nbf (Not Before)：生效时间
+        iat (Issued At)：签发时间
+        jti (JWT ID)：编号
+
+    2.2.除了官方字段，你还可以在这个部分定义私有字段
+        {
+            "sub": "1234567890",   //官方
+            "name": "John Doe",    //自定义
+            "admin": true          //自定义
+        }
+
+
+
+3.Signature部分的作用是对前两部分的签名，防止数据篡改；首先，需要指定一个密钥（secret）。
+这个密钥只有服务器才知道，不能泄露给用户。然后，使用 Header 里面指定的签名算法（默认是 HMAC SHA256），
+按照下面的公式产生签名。
+    HMACSHA256(
+      base64UrlEncode(header) + "." +
+      base64UrlEncode(payload),
+      secret)
+
+
+
+4.jwt的几个特点
+（1）JWT 默认是不加密，但也是可以加密的。生成原始 Token 以后，可以用密钥再加密一次。
+（2）JWT 不加密的情况下，不能将秘密数据写入 JWT。
+（3）JWT 不仅可以用于认证，也可以用于交换信息。有效使用 JWT，可以降低服务器查询数据库的次数。
+（4）JWT 的最大缺点是，由于服务器不保存 session 状态，因此无法在使用过程中废止某个 token，或者更改 token 的权限。
+    也就是说，一旦 JWT 签发了，在到期之前就会始终有效，除非服务器部署额外的逻辑。
+（5）JWT 本身包含了认证信息，一旦泄露，任何人都可以获得该令牌的所有权限。为了减少盗用，JWT 的有效期应该设置得比较短。
+    对于一些比较重要的权限，使用时应该再次对用户进行认证。
+（6）为了减少盗用，JWT 不应该使用 HTTP 协议明码传输，要使用 HTTPS 协议传输。

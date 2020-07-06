@@ -1,6 +1,6 @@
 package com.zongze.task;
 
-import com.zongze.entity.MqMessage;
+import com.zongze.common.entity.MqMessage;
 import com.zongze.service.RabbitmqTransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
