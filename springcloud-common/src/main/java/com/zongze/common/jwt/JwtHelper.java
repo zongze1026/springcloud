@@ -1,9 +1,10 @@
 package com.zongze.common.jwt;
-
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.InvalidClaimException;
+import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import org.springframework.util.Base64Utils;
@@ -23,7 +24,7 @@ public class JwtHelper {
         //签发时间
         Date date = new Date();
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.SECOND, 5);
+        calendar.add(Calendar.SECOND, 1);
         Date expireDate = calendar.getTime();
 
         //构建jwt
@@ -42,33 +43,45 @@ public class JwtHelper {
         DecodedJWT decodedJWT = null;
         try {
             decodedJWT = jwtVerifier.verify(jwt);
-        } catch (Exception e) {
+        } catch (JWTDecodeException e) {
             e.printStackTrace();
-            System.out.println("jwt token过期");
+            System.out.println("非法的token");
+        } catch (InvalidClaimException e) {
+            e.printStackTrace();
+            System.out.println("token过期");
         }
-        return decodedJWT.getClaims();
+        return decodedJWT == null ? null : decodedJWT.getClaims();
     }
 
 
     public static void main(String[] args) throws UnsupportedEncodingException {
+
+        parse(create());
+
+    }
+
+    private static void parse(String token) throws UnsupportedEncodingException {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        Map<String, Claim> stringClaimMap = parseJWT(token);
+        if (stringClaimMap != null && stringClaimMap.size() > 0) {
+            stringClaimMap.keySet().stream().forEach(key -> {
+                System.out.println(key + "=" + stringClaimMap.get(key).asString());
+            });
+        }
+    }
+
+    private static String create() throws UnsupportedEncodingException {
         Map<String, String> params = new HashMap<>();
         params.put("name", "toms");
         params.put("age", "18");
         String jwtToken = generateJWT(params);
         System.out.println(jwtToken);
-
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        Map<String, Claim> stringClaimMap = parseJWT(jwtToken);
-        stringClaimMap.keySet().stream().forEach(key -> {
-            System.out.println(key + "=" + stringClaimMap.get(key).asString());
-        });
-
-
+        return jwtToken;
     }
 
 
