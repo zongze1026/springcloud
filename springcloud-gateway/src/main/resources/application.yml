@@ -1,0 +1,32 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: springcloud-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          lower-case-service-id: true
+      routes:
+        - id: springcloud-consumer-route
+          uri: lb://springcloud-consumer
+          predicates:
+          - Path=/consumer/**
+          filters:
+          - StripPrefix=1
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://root:root@server2:9092/eureka/,http://root:root@server1:9091/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+
