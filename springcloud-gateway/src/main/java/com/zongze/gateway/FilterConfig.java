@@ -1,11 +1,11 @@
-package com.zongze;
+package com.zongze.gateway;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
  * Create By xzz on 2019/10/18
  */
-@Configuration
+//@Configuration
 public class FilterConfig {
 
 

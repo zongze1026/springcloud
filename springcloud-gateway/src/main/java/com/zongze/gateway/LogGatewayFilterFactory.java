@@ -1,4 +1,4 @@
-package com.zongze;
+package com.zongze.gateway;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

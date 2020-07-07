@@ -1,4 +1,4 @@
-package com.zongze;
+package com.zongze.gateway;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractNameValueGatewayFilterFactory;
 import org.springframework.http.server.reactive.ServerHttpRequest;
