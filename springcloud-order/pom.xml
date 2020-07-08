@@ -21,6 +21,11 @@
             <artifactId>springcloud-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <!--服务链路追踪-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
+        </dependency>
         <!--eureka-client-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
