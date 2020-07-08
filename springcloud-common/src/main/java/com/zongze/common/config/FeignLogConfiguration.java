@@ -2,14 +2,13 @@ package com.zongze.common.config;
 
 import feign.Logger;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//该类不需要添加@configuration注解；避免spring重复扫描
 public class FeignLogConfiguration {
 
   @Bean
   Logger.Level feignLoggerLevel() {
-    return Logger.Level.FULL;
+    return Logger.Level.BASIC;
   }
 
 }

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * Create By xzz on 2019/1/18
  */
-@FeignClient(value = "springcloud-order",fallbackFactory = OrderHystrixFactory.class,configuration = {FeignLogConfiguration.class})
+@FeignClient(value = "springcloud-order",fallbackFactory = OrderHystrixFactory.class/*,configuration = {FeignLogConfiguration.class}*/)
 public interface OrderFacade {
 
     @RequestMapping("order/create")
