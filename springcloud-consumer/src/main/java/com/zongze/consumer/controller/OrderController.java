@@ -27,7 +27,7 @@ public class OrderController {
         order.setGoodsName("华为手机");
         order.setPrice("2999");
         order.setUserId(1);
-        System.out.println(port);
+        System.out.println("测试修改端口："+port);
         return orderFacade.createOrder(order);
     }
 
