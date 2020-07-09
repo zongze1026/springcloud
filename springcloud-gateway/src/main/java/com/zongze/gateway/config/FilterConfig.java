@@ -1,6 +1,8 @@
-package com.zongze.gateway;
+package com.zongze.gateway.config;
+import com.zongze.gateway.filter.AddHeaderGatewayFilterFactory;
+import com.zongze.gateway.filter.GlobalTokenCheckFilter;
+import com.zongze.gateway.filter.LogGatewayFilterFactory;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * Create By xzz on 2019/10/18

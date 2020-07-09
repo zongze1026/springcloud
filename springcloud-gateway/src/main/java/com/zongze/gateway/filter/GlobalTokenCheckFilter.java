@@ -1,4 +1,4 @@
-package com.zongze.gateway;
+package com.zongze.gateway.filter;
 
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;

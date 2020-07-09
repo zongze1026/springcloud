@@ -15,6 +15,7 @@ spring:
           uri: lb://springcloud-consumer
           predicates:
           - Path=/consumer/**
+          - MyTimeLimit=06:00:00,23:00:00,false
           filters:
           - StripPrefix=1
 
@@ -29,4 +30,6 @@ eureka:
       defaultZone: http://root:root@server2:9092/eureka/,http://root:root@server1:9091/eureka/
   instance:
     instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+
+
 

@@ -1,12 +1,14 @@
 package com.zongze.consumer;
+
+import com.zongze.common.config.FeignLogConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
-@SpringBootApplication(scanBasePackages = {"com.zongze.common","com.zongze.consumer"})
+@SpringBootApplication(scanBasePackages = {"com.zongze.common", "com.zongze.consumer"})
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = {"com.zongze.common.facade"})
+@EnableFeignClients(basePackages = {"com.zongze.common.facade"}/*, defaultConfiguration = {FeignLogConfiguration.class}*/)
 public class SpringCloudConsumerApplication {
 
     public static void main(String[] args) {
