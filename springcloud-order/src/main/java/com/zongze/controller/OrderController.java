@@ -1,5 +1,4 @@
 package com.zongze.controller;
-
 import com.zongze.common.facade.OrderFacade;
 import com.zongze.common.entity.model.Order;
 import com.zongze.common.entity.ResultResp;
@@ -27,8 +26,8 @@ public class OrderController implements OrderFacade {
 
     @Override
     @PostMapping("create")
-    public ResultResp createOrder(@RequestBody Order order) {
-        System.out.println(port);
+    public ResultResp createOrder( @RequestBody Order order) {
+        System.out.println("请求的端口：" + port);
         order.setPrice(port + "");
         return orderService.saveOrder(order);
     }
