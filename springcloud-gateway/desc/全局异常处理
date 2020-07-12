@@ -1,0 +1,6 @@
+
+1.通过继承DefaultErrorWebExceptionHandler来自定义异常处理器GlobalJsonExceptionHandler
+
+2.配置处理器ErrorHandlerConfiguration
+
+

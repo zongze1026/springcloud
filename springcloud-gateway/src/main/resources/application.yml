@@ -15,13 +15,41 @@ spring:
           uri: lb://springcloud-consumer
           predicates:
           - Path=/consumer/**
-          - MyTimeLimit=06:00:00,23:00:00,false
+          - MyTimeLimit=06:00:00,23:00:00,true
           filters:
           - StripPrefix=1
+          #限流
+          - name: RequestRateLimiter
+            args:
+              redis-rate-limiter.replenishRate: 2
+              redis-rate-limiter.burstCapacity: 5
+              key-resolver: "#{@ipKeyResolver}"
+          #Hystrix降级回退
+          - name: Hystrix
+            args:
+              name: fallbackcmd
+              fallbackUri: forward:/fallback
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            #允许访问ip
+#            allowed-origins: "*"
+            allowed-origins:
+            - "http://localhost:8888"
+            allow-credentials: true
+            allowed-headers: "*"
+            allowed-methods:
+            - OPTIONS
+            - GET
+            - POST
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
 
 logging:
   level:
-    org.springframework.cloud.gateway: debug
+    org.springframework.cloud.gateway: trace
 eureka:
   client:
     fetch-registry: true

@@ -1,0 +1,21 @@
+redis限流配置
+
+1.添加依赖
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+    </dependency>
+
+2.添加解析器；限流过滤器可以根据ip、用户、接口等进行限流
+    @Bean
+    public KeyResolver ipKeyResolver(){
+        return  (exchange)-> Mono.just(IPAddressHelper.getClientIP((ServerHttpRequest) exchange.getRequest()));
+    }
+
+
+3.限流filter配置
+      - name: RequestRateLimiter
+        args:
+          redis-rate-limiter.replenishRate: 2  //允许1秒内处理多少个请求
+          redis-rate-limiter.burstCapacity: 5  //令牌桶的容量，允许1s内最大的请求数
+          key-resolver: "#{@ipKeyResolver}"
