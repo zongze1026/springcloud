@@ -1,0 +1,26 @@
+一、自定义一个feign的拦截器，为每一次请求往请求头里添加token
+
+    1.编写拦截器；通过实现RequestInterceptor来定义拦截器
+        public class FeignAuth2Interceptor implements RequestInterceptor {
+            @Override
+            public void apply(RequestTemplate requestTemplate) {
+                //如果想通过RequestContextHolder获取到request，需要修改hystrix的隔离策略
+                RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+                HttpServletRequest request = ((ServletRequestAttributes)requestAttributes).getRequest();
+                String token = request.getHeader("token");
+                //添加token到请求头
+                requestTemplate.header("token",token);
+
+            }
+        }
+
+
+   2.修改配置文件，配置拦截器
+
+    2.1 增加拦截器配置
+    #全局配置feign传递token
+    feign.client.config.default.request-interceptors[0]=com.zongze.common.interceptor.FeignAuth2Interceptor
+
+    2.2 修改hystrix的隔离策略
+    #hystrix隔离策略
+    hystrix.command.default.execution.isolation.strategy=SEMAPHORE

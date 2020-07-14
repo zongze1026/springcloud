@@ -17,7 +17,5 @@ public class FeignAuth2Interceptor implements RequestInterceptor {
         String token = request.getHeader("token");
         requestTemplate.header("token",token);
 
-
-
     }
 }

@@ -33,9 +33,9 @@ spring:
         cors-configurations:
           '[/**]':
             #允许访问ip
-#            allowed-origins: "*"
-            allowed-origins:
-            - "http://localhost:8888"
+            allowed-origins: "*"
+#            allowed-origins:
+#            - "http://localhost:8888"
             allow-credentials: true
             allowed-headers: "*"
             allowed-methods:
